@@ -1,7 +1,7 @@
 ---
-- name: Install gnupg-agent
+- name: Install gpg
   apt:
-    name: gnupg-agent
+    name: gpg
     update_cache: yes
   when: ansible_os_family == "Debian"
 
