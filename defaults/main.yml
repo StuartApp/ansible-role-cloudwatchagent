@@ -2,6 +2,8 @@
 cwa_gpg_url: https://s3.amazonaws.com/amazoncloudwatch-agent/assets
 cwa_gpg_fingerprint: "937616F3450B7D806CBD9725D58167303B789C72"
 
+cwa_service_state: started
+cwa_service_enabled: true
 cwa_mode: ec2
 
 cwa_logfile: /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log

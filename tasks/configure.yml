@@ -16,8 +16,8 @@
 - name: Ensure service is started and enabled
   service:
     name: amazon-cloudwatch-agent
-    state: started
-    enabled: true
+    state: "{{ cwa_service_state }}"
+    enabled: "{{ cwa_service_enabled }}"
 
 - name: Configure log rotation
   copy:
