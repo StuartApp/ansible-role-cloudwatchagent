@@ -9,9 +9,9 @@ cwa_mode: ec2
 cwa_logfile: /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 
 cwa_config_dir: /opt/aws/amazon-cloudwatch-agent/etc
-cwa_config_map:
-  metrics:
-    metrics_collected:
-      mem:
-        measurement:
-          - name: mem_used_percent
+cwa_config_maps:
+  - metrics:
+      metrics_collected:
+        mem:
+          measurement:
+            - name: mem_used_percent

@@ -1,17 +1,15 @@
 ---
 - name: Ensure json config file is in place and is valid
   template:
-    src: "{{ item }}.j2"
-    dest: "{{ cwa_config_dir }}/{{ item }}"
+    src: "amazon-cloudwatch-agent.json.j2"
+    dest: "{{ cwa_config_dir }}/amazon-cloudwatch-agent.d/fragment_{{ cfg_index }}"
     owner: root
     group: root
     mode: 0644
-    validate: |
-      /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl
-      -a fetch-config -c file:%s -m {{ cwa_mode }}
   notify: restart cwa
-  with_items:
-    - amazon-cloudwatch-agent.json
+  loop: "{{cwa_config_maps}}"
+  loop_control:
+    index_var: cfg_index
 
 - name: Ensure service is started and enabled
   service:

@@ -64,6 +64,7 @@ cwa_config_dir: /opt/aws/amazon-cloudwatch-agent/etc
 ```
 The directory into which the agent config file will be placed.
 
+TODO: fix this below
 ```
 cwa_config_map:
   metrics:
