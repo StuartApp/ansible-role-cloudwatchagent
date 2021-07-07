@@ -2,14 +2,12 @@
 - name: Ensure json config file is in place and is valid
   template:
     src: "amazon-cloudwatch-agent.json.j2"
-    dest: "{{ cwa_config_dir }}/amazon-cloudwatch-agent.d/fragment_{{ cfg_index }}"
+    dest: "{{ cwa_config_dir }}/amazon-cloudwatch-agent.d/fragment_{{ item | hash('sha1') }}"
     owner: root
     group: root
     mode: 0644
   notify: restart cwa
   loop: "{{cwa_config_maps}}"
-  loop_control:
-    index_var: cfg_index
 
 - name: Ensure service is started and enabled
   service:
